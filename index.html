@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio SMA Negeri</title>
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Custom styles for premium modern design */
+    body {
+      font-family: 'Inter', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    /* Header */
+    header {
+      backdrop-filter: blur(12px);
+      background: rgba(255 255 255 / 0.8);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      height: 64px;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+      color: #334155;
+    }
+    .nav-link {
+      color: #475569;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover, .nav-link:focus {
+      color: #6366f1;
+      outline: none;
+    }
+    /* Hero section */
+    #hero {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: white;
+      padding: 8rem 1.5rem 6rem;
+      text-align: center;
+    }
+    #hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    #hero p {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    /* About Section */
+    #about {
+      padding: 4rem 1.5rem;
+      background: white;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    #about h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #334155;
+      text-align: center;
+    }
+    #about p {
+      font-size: 1.125rem;
+      color: #475569;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+    /* Portfolio Section */
+    #portfolio {
+      padding: 4rem 1.5rem;
+      background: #f1f5f9;
+    }
+    #portfolio h2 {
+      font-weight: 700;
+      color: #334155;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .portfolio-item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgb(99 102 241 / 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgb(99 102 241 / 0.3);
+    }
+    .portfolio-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-content {
+      padding: 1.25rem 1rem 1.5rem;
+    }
+    .portfolio-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-description {
+      font-size: 1rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+    /* Contact Section */
+    #contact {
+      padding: 4rem 1.5rem;
+      background: white;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #contact h2 {
+      font-weight: 700;
+      color: #334155;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .form-control:focus {
+      box-shadow: 0 0 0 0.25rem rgb(99 102 241 / 0.5);
+      border-color: #6366f1;
+    }
+    button[type="submit"] {
+      background: #6366f1;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      color: white;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    button[type="submit"]:hover, button[type="submit"]:focus {
+      background: #4f46e5;
+      outline: none;
+      box-shadow: 0 0 12px rgb(79 70 229 / 0.7);
+    }
+    /* Footer */
+    footer {
+      background: #334155;
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #8b5cf6;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+    footer a:hover, footer a:focus {
+      color: #a78bfa;
+      outline: none;
+    }
+    /* Responsive tweaks */
+    @media (min-width: 768px) {
+      #about p {
+        font-size: 1.25rem;
+      }
+      #contact {
+        padding: 5rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg container">
+      <a class="navbar-brand" href="#hero">SMA Negeri</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-3">
+          <li class="nav-item">
+            <a class="nav-link active" href="#hero" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" role="banner" aria-label="SMA Negeri main banner introduction">
+    <div class="container">
+      <h1>Selamat Datang di SMA Negeri</h1>
+      <p>Menjadi unggul dalam prestasi, berakhlak mulia, dan siap berkontribusi untuk masa depan yang cerah.</p>
+      <a href="#portfolio" class="btn btn-light btn-lg fw-bold px-4 shadow-sm">
+        Lihat Portofolio
+        <span class="material-icons align-middle ms-2">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" tabindex="0" aria-labelledby="about-title">
+    <h2 id="about-title">Tentang SMA Negeri</h2>
+    <p>
+      SMA Negeri adalah sekolah menengah atas yang mengedepankan pendidikan berkualitas dengan fasilitas
+      lengkap dan tenaga pengajar profesional. Kami berfokus pada pengembangan akademik, ekstrakurikuler,
+      dan karakter siswa untuk menghadapi tantangan global.
+    </p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" tabindex="0" aria-labelledby="portfolio-title" >
+    <h2 id="portfolio-title">Portofolio Sekolah</h2>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4">
+          <article class="portfolio-item" tabindex="0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/20767aaa-74fe-49d0-bff9-9ba61fec1e5c.png" alt="Siswa SMA Negeri mengikuti kegiatan pramuka di lapangan sekolah" class="portfolio-image" loading="lazy" />
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Kegiatan Pramuka</h3>
+              <p class="portfolio-description">
+                Siswa aktif mengikuti kegiatan ekstrakurikuler Pramuka yang memperkuat jiwa kepemimpinan dan kebersamaan.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <article class="portfolio-item" tabindex="0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f86bb244-6912-4449-a8b8-ec9133bc63f4.png" alt="Tim siswa SMA Negeri meraih juara dalam kompetisi sains tingkat provinsi" class="portfolio-image" loading="lazy" />
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Kompetisi Sains</h3>
+              <p class="portfolio-description">
+                Tim sains meraih berbagai penghargaan dalam kompetisi tingkat regional dan nasional.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <article class="portfolio-item" tabindex="0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cf73b7e2-977e-4561-ac9b-74316745be9a.png" alt="Pertunjukan seni tari tradisional oleh siswa SMA Negeri di panggung sekolah" class="portfolio-image" loading="lazy" />
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Ekstrakurikuler Seni</h3>
+              <p class="portfolio-description">
+                Kegiatan seni budaya yang mengasah kreativitas dan menumbuhkan kecintaan pada tradisi.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <article class="portfolio-item" tabindex="0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/76267880-862a-4c9d-90a4-2b3fba6af554.png" alt="Pameran karya seni dan sains siswa SMA Negeri di aula sekolah" class="portfolio-image" loading="lazy" />
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Pameran Karya Siswa</h3>
+              <p class="portfolio-description">
+                Pameran tahunan yang menampilkan kreativitas dalam seni, teknologi, dan ilmu pengetahuan.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <article class="portfolio-item" tabindex="0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/17089039-5c57-494d-bcd2-b84be52158a6.png" alt="Siswa SMA Negeri mengikuti lomba olahraga tingkat kabupaten" class="portfolio-image" loading="lazy" />
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Kegiatan Olahraga</h3>
+              <p class="portfolio-description">
+                Memperkuat kesehatan dan semangat sportif melalui berbagai cabang olahraga.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <article class="portfolio-item" tabindex="0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d283ea8f-cd15-4170-936f-0e315a2f75b2.png" alt="Workshop teknologi dan pemrograman untuk siswa SMA Negeri" class="portfolio-image" loading="lazy" />
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Pelatihan Teknologi</h3>
+              <p class="portfolio-description">
+                Workshop pemrograman dan teknologi informasi untuk persiapan era digital.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" tabindex="0" aria-labelledby="contact-title">
+    <h2 id="contact-title">Kontak Kami</h2>
+    <form novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nama Lengkap</label>
+        <input type="text" class="form-control" id="name" aria-describedby="nameHelp" required placeholder="Masukkan nama lengkap Anda" />
+        <div class="invalid-feedback">Nama wajib diisi.</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Alamat Email</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required placeholder="email@domain.com" />
+        <div class="invalid-feedback">Masukkan email yang valid.</div>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Pesan</label>
+        <textarea class="form-control" id="message" rows="4" required placeholder="Tulis pesan Anda di sini"></textarea>
+        <div class="invalid-feedback">Pesan wajib diisi.</div>
+      </div>
+      <button type="submit" class="btn btn-primary" aria-label="Kirim pesan kontak">Kirim</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 SMA Negeri. By Gaming Samuel.</p>
+    <p>
+      Ikuti kami: 
+      <a href="#" aria-label="Link Facebook SMA Negeri">Facebook</a> |
+      <a href="#" aria-label="Link Github SMA Negeri">Github</a> |
+      <a href="#" aria-label="Link Instagram SMA Negeri">Instagram</a>
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Form validation with Bootstrap's custom validation styles
+    (() => {
+      'use strict';
+      const form = document.querySelector('form');
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+  </script>
+</body>
+</html>
+
