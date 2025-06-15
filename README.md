@@ -1,0 +1,2 @@
+# ebby
+portofolio sma negri
